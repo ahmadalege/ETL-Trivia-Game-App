@@ -53,6 +53,10 @@ docker-compose down --volumes --remove-orphans
 
 📷 Screenshots
 
+![App Screenshot](frontend\src\public\1.png)
+![App Screenshot](frontend\src\public\2.png)
+![App Screenshot](frontend\src\public\3.png)
+
 📝 Article
 Read the full breakdown of this project and how Docker makes development & deployment easier:
 ➡️ [A Comprehensive Guide to Docker: Simplifying Development and Deployment](https://medium.com/@alegeahmadolaitan/a-comprehensive-guide-to-docker-simplifying-development-and-deployment-5ad8d7d1cdca)
