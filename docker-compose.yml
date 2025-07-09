@@ -1,0 +1,33 @@
+services:
+  etl:
+    build: ./etl
+    container_name: etl_service
+    volumes:
+      - trivia-data:/data
+    command: ["python", "run_etl.py"]
+
+  backend:
+    build: ./backend
+    container_name: backend_service
+    depends_on:
+      - etl
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - trivia-data:/data
+    command:
+      ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_service
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev
+
+volumes:
+  trivia-data:
